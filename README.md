@@ -1,24 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Transaction Performance Test with Privy
+
+This application demonstrates how to measure blockchain transaction performance when using Privy embedded wallets. It tracks and displays metrics about transaction submission and confirmation times.
+
+## Features
+
+- Login with Privy's embedded wallet
+- Transaction performance tracking
+- Real-time visualization of transaction progress
+- Statistics compilation across multiple transactions
 
 ## Getting Started
 
-First, run the development server:
+1. Clone this repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Create a `.env.local` file with your Privy App ID:
+   ```
+   NEXT_PUBLIC_PRIVY_APP_ID=your-privy-app-id
+   ```
+4. Update the contract details in `src/constants/contracts.ts` with your own contract address and ABI
+5. Start the development server:
+   ```
+   npm run dev
+   ```
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How it Works
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This app measures three key transaction events:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Click** - User initiates the transaction
+2. **Submission** - Transaction is submitted to the blockchain
+3. **Receipt** - Transaction is confirmed and receipt is received
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The app displays both the time from click to each event and the time between events.
+
+## Technologies Used
+
+- Next.js
+- React
+- Privy for wallet management
+- shadcn/ui for the component library
 
 ## Learn More
 
